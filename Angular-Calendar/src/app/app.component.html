@@ -9,7 +9,7 @@
   <div class="form-group">
     <div class="input-group">
       <input class="form-control" placeholder="yyyy-mm-dd"
-             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+             name="dp" [(ngModel)]="startDate" ngbDatepicker #d="ngbDatepicker">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
           <img src="../assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
@@ -17,7 +17,11 @@
       </div>
     </div>
   </div>
+    <input class="form-control" type="number" placeholder="Number of Days"[(ngModel)]="days" name="day-box">
+    <input class="form-control" type="button" (click)="addDays()" value="Submit">
 </form>
 
 <hr/>
-<pre>Model: {{ model | json }}</pre>
+<pre>Start Date: {{ startDate | json }} </pre>
+<pre>End Date: {{endDate | json }}</pre>
+<pre>Days: {{days | json }}</pre>

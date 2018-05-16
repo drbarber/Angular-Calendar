@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  model;
+ startDate;
+ endDate: Date = new Date();
+ days: number;
+
+
+  addDays(){
+    console.log(this.startDate.day)
+    this.endDate.setDate(this.startDate.day + this.days);
+
+    console.log(this.endDate);
+  }
 }
