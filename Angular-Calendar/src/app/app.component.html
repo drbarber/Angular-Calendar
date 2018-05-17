@@ -23,18 +23,15 @@
 
 <hr/>
 
-<pre>From: {{ startDate | json }} </pre>
-<pre>To: {{ endDate | json }} </pre>
-<pre>From: {{ fullStartDate | json }} </pre>
-<pre>To: {{ fullEndDate | json }} </pre>
-
  <div class="calendar-row" *ngIf="startDate">
-  <div class="month">{{months[(startDate.month - 1)]}} <br> {{startDate.year}}</div>
+   <div *ngFor="let month of calendarMonths">
+  <div class="month" >{{month.month}} <br> {{startDate.year}}</div>
   <ul class="weekdays" >
       <li *ngFor="let day of daysOfWeek">{{ day }}</li>
     </ul>
 
     <ul class="days">
-      <li *ngFor="let cDay of calendarDays">{{cDay | json}}</li>
+      <li *ngFor="let cDay of month.cDays"[ngClass]="cDay.css">{{cDay.day}}</li>
     </ul>
+  </div>
 </div> 
