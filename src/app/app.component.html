@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Hello! Please slect a start date and number of days.
+  </h1>
+</div>
+
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="startDate" ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+          <img src="../assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+        </button>
+      </div>
+    </div>
+  </div>
+    <input class="form-control" type="number" placeholder="Number of Days"[(ngModel)]="days" name="day-box">
+    <input class="form-control" type="button" (click)="addDays()" value="Submit">
+</form>
+
+<hr/>
+
+ <div class="calendar-row" *ngIf="startDate">
+   <div *ngFor="let month of calendarMonths">
+  <div class="month" >{{month.month}} <br> {{startDate.year}}</div>
+  <ul class="weekdays" >
+      <li *ngFor="let day of daysOfWeek">{{ day }}</li>
+    </ul>
+
+    <ul class="days">
+      <li *ngFor="let cDay of month.cDays"[ngClass]="cDay.css">{{cDay.day}}</li>
+    </ul>
+  </div>
+</div> 
